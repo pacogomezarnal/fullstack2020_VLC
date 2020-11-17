@@ -19,14 +19,14 @@
     <!-- CONTENIDO -->
     <div class="container">
         <h3>Nuevo alumno</h3>
-        <form action="registro.php">
+        <form action="registro.php" method="post">
             <div class="form-group">
                 <label for="nombre">Nombre</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Paco">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="apellido1">Apellido 1</label>
+                    <label for="apellido">Apellido 1</label>
                     <input type="text" class="form-control" id="apellido1" name="apellido1" placeholder="Gómez">
                 </div>
                 <div class="form-group col-md-6">

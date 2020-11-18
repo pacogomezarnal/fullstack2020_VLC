@@ -1,3 +1,12 @@
+<?php
+    $errorMostrar="";
+    //Existe error
+    if(!empty($_GET["error"])){
+        $errorMostrar=$_GET["error"];
+    }
+    echo $errorMostrar;
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +28,10 @@
     <!-- CONTENIDO -->
     <div class="container">
         <h3>Nuevo alumno</h3>
+        <?php if(!empty($errorMostrar)){?>
+        <div class='alert alert-danger' role='alert'><?=$errorMostrar?></div>
+        <?php
+        }?>
         <form action="registro.php" method="post">
             <div class="form-group">
                 <label for="nombre">Nombre</label>

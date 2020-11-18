@@ -1,8 +1,31 @@
 <?php
+    $error=false;
+    $errorMSg="";
+
     if(empty($_POST["nombre"])){
-        header("Location: http://localhost:8080/index.php");
+        $error=true;
+        $errorMSg="Falta nombre";
     }elseif(empty($_POST["apellido1"])){
-        header("Location: http://localhost:8080/index.php");
+        $error=true;
+        $errorMSg="Falta apellido 1";
+    }elseif(empty($_POST["apellido2"])){
+        $error=true;
+        $errorMSg="Falta apellido 2";
+    }elseif(empty($_POST["correo"])){
+        $error=true;
+        $errorMSg="Falta Correo";
+    }elseif(empty($_POST["convocatoria"])){
+        $error=true;
+        $errorMSg="Falta convocatoria";
+    }
+    elseif(empty($_POST["proyecto"])){
+        $error=true;
+        $errorMSg="Falta proyecto";
+    }
+
+    //Conmprobamos errores y devolvemos error
+    if($error){
+        header("Location: http://localhost:8080/index.php?error=$errorMSg");
     }
 ?>
 <!DOCTYPE html>

@@ -20,6 +20,13 @@
     if(comprobarCampos($errorMsg,$_POST)){
         header("Location: http://localhost:8080/index.php?error=Campo $errorMsg vacio");
     }
+
+    //Conectar contra la DB
+    $conector = new mysqli("localhost", "root", "", "clases");
+    if ($conector->connect_errno){
+        header("Location: http://localhost:8080/index.php?error=Error de conexion");
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

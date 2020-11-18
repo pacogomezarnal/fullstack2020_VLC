@@ -1,3 +1,10 @@
+<?php
+    if(empty($_POST["nombre"])){
+        header("Location: http://localhost:8080/index.php");
+    }elseif(empty($_POST["apellido1"])){
+        header("Location: http://localhost:8080/index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

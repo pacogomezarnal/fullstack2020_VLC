@@ -1,37 +1,29 @@
 <?php
-    $error=false;
-    $errorMSg="";
+    $errorMsg="";
 
-    if(empty($_POST["nombre"])){
-        $error=true;
-        $errorMSg="Falta nombre";
-    }elseif(empty($_POST["apellido1"])){
-        $error=true;
-        $errorMSg="Falta apellido 1";
-    }elseif(empty($_POST["apellido2"])){
-        $error=true;
-        $errorMSg="Falta apellido 2";
-    }elseif(empty($_POST["correo"])){
-        $error=true;
-        $errorMSg="Falta Correo";
-    }elseif(empty($_POST["convocatoria"])){
-        $error=true;
-        $errorMSg="Falta convocatoria";
+    //FUNCION QUE REALICE LA COMPROBACIÓN
+    function comprobarCampos(&$errorMsg,$formulario){
+        $listaErrores=["nombre"=>"nombre","apellido1"=>"primer apellido"];
+        $algunCampoVacio=false;
+        foreach ($formulario as $clave => $valor) {
+            if(empty($valor)){
+                $algunCampoVacio=true;
+                $errorMsg=$listaErrores[$clave];
+                break; 
+            }
+        }
+        return $algunCampoVacio;
     }
-    elseif(empty($_POST["proyecto"])){
-        $error=true;
-        $errorMSg="Falta proyecto";
-    }
+    
 
     //Conmprobamos errores y devolvemos error
-    if($error){
-        header("Location: http://localhost:8080/index.php?error=$errorMSg");
+    if(comprobarCampos($errorMsg,$_POST)){
+        header("Location: http://localhost:8080/index.php?error=Campo $errorMsg vacio");
     }
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+<head> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de alumnos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">

@@ -1,14 +1,5 @@
-<?php
-    $errorMostrar="";
-    //Existe error
-    if(!empty($_GET["error"])){
-        $errorMostrar=$_GET["error"];
-    }
-    echo $errorMostrar;
-    
-?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,14 +8,10 @@
     <link rel="stylesheet" href="./css/estilos.css">
 </head>
 <body>
-    <?php include_once "./template/nav.php"?>
+    <?php include_once "./templates/nav.php"?>
     <!-- CONTENIDO -->
     <div class="container">
         <h3>Nuevo alumno</h3>
-        <?php if(!empty($errorMostrar)){?>
-        <div class='alert alert-danger' role='alert'><?=$errorMostrar?></div>
-        <?php
-        }?>
         <form action="registro.php" method="post">
             <div class="form-group">
                 <label for="nombre">Nombre</label>

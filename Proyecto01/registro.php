@@ -48,14 +48,7 @@
     <link rel="stylesheet" href="./css/estilos.css">
 </head>
 <body>
-    <!-- MENU DE NAVEGACIÓN -->
-    <nav class="navbar fixed-top navbar-dark bg-dark">
-        <ul class="navbar-nav">
-        <li class="nav-item active">
-            <a class="nav-link" href="index.php">Registro</a>
-        </li>
-        </ul>
-    </nav>
+    <?php include "./template/nav.php"?>
     <!-- CONTENIDO -->
     <div class="container">
         <h2>Alumno recibido</h2>

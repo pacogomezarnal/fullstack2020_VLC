@@ -1,3 +1,9 @@
+<?php
+require_once __DIR__.'/vendor/autoload.php';
+use Geeks\Model\DB;
+
+$db=new DB();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

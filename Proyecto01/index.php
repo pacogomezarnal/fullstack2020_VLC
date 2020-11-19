@@ -48,6 +48,10 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="edad">Edad</label>
+                <input type="text" class="form-control" id="edad" name="edad" placeholder="45">
+            </div>
+            <div class="form-group">
                 <label for="correo">Correo</label>
                 <input type="email" class="form-control" id="correo" name="correo" >
             </div>

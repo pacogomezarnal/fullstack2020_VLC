@@ -2,7 +2,7 @@
 require_once __DIR__.'/vendor/autoload.php';
 use Geeks\Model\DB;
 
-$db=new DB();
+$db=new DB("localhost");
 ?>
 <!DOCTYPE html>
 <html lang="es">

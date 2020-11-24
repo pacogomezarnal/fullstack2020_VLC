@@ -23,7 +23,7 @@ class CreateAlumnosTable extends Migration
     }
 
     /**
-     * 
+     *
      * Reverse the migrations.
      *
      * @return void

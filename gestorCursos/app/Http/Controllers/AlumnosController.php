@@ -18,4 +18,15 @@ class AlumnosController extends Controller
         $alumno=Alumno::find($id);
         return view('alumnos.show',["alumno"=>$alumno]);
     }
+    function create(){
+        return view('alumnos.create');
+    }
+
+    function store(Request $request){
+        $data=$request->all();
+        $alumno = new Alumno($data);
+        $alumno->save();
+
+        return redirect("alumnos");
+    }
 }

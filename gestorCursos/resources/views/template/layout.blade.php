@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href="{{asset('./fontawesome/css/all.css')}}" rel="stylesheet">
+    <link href="{{asset('./css/estilos.css')}}" rel="stylesheet">
 </head>
 <body>
     <!-- NAVEGACION-->
@@ -22,7 +23,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="{{route('alumnos')}}">Listar Alumnos</a>
-                      <a class="dropdown-item" href="">Nuevo Alumno</a>
+                      <a class="dropdown-item" href="{{route('alumnos.create')}}">Nuevo Alumno</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Something else here</a>
                     </div>

@@ -4,6 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
+
+
 class ModifyAlumnosTable extends Migration
 {
     /**
@@ -13,9 +16,11 @@ class ModifyAlumnosTable extends Migration
      */
     public function up()
     {
+
         Schema::table('alumnos', function (Blueprint $table) {
             $table->string('correo',512);
         });
+
     }
 
     /**

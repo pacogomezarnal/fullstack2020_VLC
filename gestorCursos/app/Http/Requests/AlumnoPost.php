@@ -27,7 +27,7 @@ class AlumnoPost extends FormRequest
             'nombre' => 'required',
             'apellido1' => 'required',
             'apellido2' => 'required',
-            'correo' => 'unique:App\Models\Alumno,correo'
+            'correo' => 'required|unique:App\Models\Alumno,correo'
         ];
     }
     /**
@@ -42,6 +42,7 @@ class AlumnoPost extends FormRequest
             'nombre.required' => 'El nombre está vacío',
             'apellido1.required' => 'El primer apellido está vacío',
             'apellido2.required' => 'El segundo apellido está vacío',
+            'correo.required' => 'El correo está vacío',
             'correo.unique' => 'El correo que se está utilizando ya existe en la DB'
         ];
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Alumno;
+use App\Http\Requests\AlumnoPost;
 
 class AlumnosController extends Controller
 {
@@ -22,7 +23,11 @@ class AlumnosController extends Controller
         return view('alumnos.create');
     }
 
-    function store(Request $request){
+    function store(AlumnoPost $request){
+
+        //Validamos
+        $request->validated();
+
         $data=$request->all();
         $alumno = new Alumno($data);
         $alumno->save();

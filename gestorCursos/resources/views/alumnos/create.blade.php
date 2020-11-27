@@ -37,6 +37,13 @@
             <label for="correo">Nombre</label>
             <input type="email" class="form-control" id="correo" name="correo" placeholder="Tu correo" value="{{old('correo')}}">
         </div>
+        <div class="form-group">
+            <select class="form-control" name="curso">
+                @foreach ($cursos as $curso)
+                    <option value="{{$curso->id}}">{{$curso->nombre}}</option>
+                @endforeach
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Registrar</button>
 
     </form>

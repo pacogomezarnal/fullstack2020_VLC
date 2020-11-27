@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnosController;
 use App\Http\Controllers\CursoController;
-
+use App\Http\Controllers\EntregableController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +21,5 @@ Route::get('/alumnos/create', [AlumnosController::class,'create'])->name('alumno
 Route::get('/alumnos/{id}', [AlumnosController::class,'show'])->name('alumnos.show');
 Route::post('/alumnos/store', [AlumnosController::class,'store'])->name('alumnos.store');
 
+//Route::resource('alumnos', AlumnosController::class);
 Route::resource('curso', CursoController::class);

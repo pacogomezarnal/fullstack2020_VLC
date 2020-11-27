@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEntregablesTable extends Migration
+class CreateAlumnoCursoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateEntregablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('entregables', function (Blueprint $table) {
+        Schema::create('alumno_curso', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('nombre',64);
-            $table->date('fecha_ini');
-            $table->date('fecha_fin');
 
             //Relacion entre tablas
-            $table->foreignId('curso_id')->constrained('cursos')->onDelete('cascade');
+            $table->foreignId('curso_id')->constrained('cursos');
+            $table->foreignId('alumno_id')->constrained('alumnos');
         });
     }
 
@@ -32,6 +30,6 @@ class CreateEntregablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entregables');
+        Schema::dropIfExists('alumno_curso');
     }
 }

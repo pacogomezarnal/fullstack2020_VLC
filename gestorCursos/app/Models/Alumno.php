@@ -11,4 +11,16 @@ class Alumno extends Model
 
     protected $guarded = [];
 
+    /**
+     * The cursos that belong to the user.
+     */
+    public function cursos()
+    {
+        return $this->belongsToMany('App\Models\Curso');
+    }
+
+    public function saveCursos(){
+
+    }
+
 }

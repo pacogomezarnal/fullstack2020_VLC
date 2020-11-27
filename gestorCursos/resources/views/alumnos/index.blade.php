@@ -18,7 +18,12 @@
     <tbody>
         @foreach ($dataAlumnos as $alumno)
             <tr>
-            <th scope="row">{{$alumno->id}}</td>
+            <th scope="row">{{$alumno->id}} (
+                @foreach ($alumno->cursos as $curso)
+                {{$curso->nombre}},
+                @endforeach
+                )
+            </td>
                 <td>{{$alumno->nombre}}</td>
                 <td>{{$alumno->apellido1}}</td>
                 <td>{{$alumno->apellido2}}</td>

@@ -10,4 +10,9 @@ class Tienda extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function productos()
+    {
+        return $this->hasMany('App\Models\Producto');
+    }
 }

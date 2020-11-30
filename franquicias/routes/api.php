@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TiendaController;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/tiendas', TiendaController::class);
+Route::apiResource('tiendas', TiendaController::class);
+Route::get('productos', [ProductoController::class,'indexAll']);
+Route::apiResource('tienda.productos', ProductoController::class);
+//Route::apiResource('productos', ProductoController::class)->only(['store', 'update','destroy']);

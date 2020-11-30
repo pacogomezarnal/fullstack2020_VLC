@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Tienda;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Validator;
+
 class TiendaController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class TiendaController extends Controller
      */
     public function index()
     {
-        //
+        $tiendas=Tienda::all();
+        return $tiendas;
     }
 
 
@@ -26,7 +29,30 @@ class TiendaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input=$request->all();
+
+        $rules=[
+            'nombre' => 'required|min:5',
+            'poblacion' => 'required',
+            'numTelf' => 'required'
+        ];
+
+        $messages=[
+            'nombre.required' => 'No has introducido un nombre',
+            'nombre.min' => 'El nomnbre tiene menos de 5 caracteres',
+            'poblacion.required' => 'No has introducido la poblacion',
+            'numTelf.required' => 'No has introducido el numero de telefono'
+        ];
+
+        $validator = Validator::make($input,$rules,$messages);
+
+        if ($validator->fails()) {
+            return response()->json([$validator->errors()],400);
+        }else{
+            $tienda=Tienda::create($input);
+
+            return $tienda;
+        }
     }
 
     /**

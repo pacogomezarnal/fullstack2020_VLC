@@ -25,8 +25,8 @@ class TiendaSeeder extends Seeder
         $tiendas=Tienda::all();
 
             Proveedor::all()->each(
-                function($proveedor) use ($tiendas){
-                $proveedor->tiendas()->attach($tiendas->random(1,10)->toArray());
+                function($proveedor){
+                $proveedor->tiendas()->attach(Tienda::find(rand(1,9)));
             });
     }
 }

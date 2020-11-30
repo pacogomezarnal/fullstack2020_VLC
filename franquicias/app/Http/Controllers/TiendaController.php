@@ -20,6 +20,12 @@ class TiendaController extends Controller
         return $tiendas;
     }
 
+    public function indexAll()
+    {
+        $tiendas=Tienda::with('productos')->get();
+        return $tiendas;
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -63,7 +69,9 @@ class TiendaController extends Controller
      */
     public function show(Tienda $tienda)
     {
-        //
+        $tienda = Tienda::find($tienda->id);
+
+        return $tienda;
     }
 
 

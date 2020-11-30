@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('tiendasConProductos', [TiendaController::class,'indexAll']);
 Route::apiResource('tiendas', TiendaController::class);
 Route::get('productos', [ProductoController::class,'indexAll']);
 Route::apiResource('tienda.productos', ProductoController::class);

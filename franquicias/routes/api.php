@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\ApiCursoController;
+
+use App\Http\Controllers\TiendaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/curso', ApiCursoController::class);
-Route::apiResource('/user', ApiUserController::class);
-
-
+Route::apiResource('tiendas', TiendaController::class);

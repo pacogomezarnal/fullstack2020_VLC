@@ -25,4 +25,5 @@ Route::get('tiendasConProductos', [TiendaController::class,'indexAll']);
 Route::apiResource('tiendas', TiendaController::class);
 Route::get('productos', [ProductoController::class,'indexAll']);
 Route::apiResource('tienda.productos', ProductoController::class);
+Route::apiResource('proveedores', ProveedorController::class);
 //Route::apiResource('productos', ProductoController::class)->only(['store', 'update','destroy']);

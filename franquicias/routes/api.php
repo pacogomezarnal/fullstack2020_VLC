@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TiendaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ProveedorController;
+
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +24,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//LOGIN-REGISTER
+Route::post('register', [UserController::class,'store']);
+Route::post('login', [UserController::class,'login'])->name('login');
+Route::get('logout', [UserController::class,'logout'])->name('logout')->middleware('auth:api');
+
+
 Route::get('tiendasConProductos', [TiendaController::class,'indexAll']);
-Route::apiResource('tiendas', TiendaController::class);
+Route::apiResource('tiendas', TiendaController::class)->middleware('auth:api');
 Route::get('productos', [ProductoController::class,'indexAll']);
 Route::apiResource('tienda.productos', ProductoController::class);
 Route::apiResource('proveedores', ProveedorController::class);
